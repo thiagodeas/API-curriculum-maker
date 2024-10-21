@@ -11,7 +11,10 @@ public class UserProfile {
     private String fullName;
     private String jobTitle;
     private String nationality;
+    private String maritalStatus;
     private String city;
+    private String state;
+    private String country;
     private String phone;
     private String email;
     private String linkedin;
@@ -24,5 +27,5 @@ public class UserProfile {
     private String otherSkills;
     private List<Education> education;
     private List<Project> projects;
-    private String additionalActivities;
+    private List<AdditionalActivity> additionalActivities;
 }
