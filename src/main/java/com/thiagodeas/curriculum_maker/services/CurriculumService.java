@@ -49,11 +49,11 @@ public class CurriculumService {
             document.add(new Paragraph("CONHECIMENTOS", sessionFont));
             document.add(new Paragraph("\n"));
 
-            document.add(new Paragraph("•FrontEnd: " + userProfile.getFrontEndSkills()));
-            document.add(new Paragraph("•BackEnd: " + userProfile.getBackEndSkills()));
-            document.add(new Paragraph("•Database: " + userProfile.getDatabaseSkills()));
-            document.add(new Paragraph("•Cloud: " + userProfile.getCloudSkills()));
-            document.add(new Paragraph("•Outros: " + userProfile.getOtherSkills()));
+            document.add(new Paragraph("•FrontEnd: " + userProfile.getFrontEndKnowledge()));
+            document.add(new Paragraph("•BackEnd: " + userProfile.getBackEndKnowledge()));
+            document.add(new Paragraph("•Database: " + userProfile.getDatabaseKnowledge()));
+            document.add(new Paragraph("•Cloud: " + userProfile.getCloudKnowledge()));
+            document.add(new Paragraph("•Outros: " + userProfile.getOthersKnowledge()));
 
             document.add(new Paragraph("\n"));
             document.add(new Paragraph("EDUCAÇÃO", sessionFont));
@@ -61,7 +61,7 @@ public class CurriculumService {
 
             userProfile.getEducation().forEach(education -> {
                 try {
-                    document.add(new Paragraph("•" + education.getCourseName() + " | " + education.getInstitution() + " | " + education.getYear(), fontInfos));
+                    document.add(new Paragraph("•" + education.getCourse() + " | " + education.getInstitution() + " | " + education.getYear(), fontInfos));
                 } catch (DocumentException e) {
                     e.printStackTrace();
                 }
