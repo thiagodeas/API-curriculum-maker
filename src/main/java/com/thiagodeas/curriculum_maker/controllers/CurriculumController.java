@@ -14,7 +14,7 @@ public class CurriculumController {
     @Autowired
     private CurriculumService curriculumService;
 
-    @CrossOrigin("http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "https://curriculum-maker.vercel.app"})
     @PostMapping("/generate")
     public ResponseEntity<byte[]> generateCurriculum(@RequestBody UserProfile userProfile){
         byte[] pdfBytes = curriculumService.generatePdf(userProfile);
