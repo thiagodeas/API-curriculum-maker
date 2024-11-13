@@ -19,22 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/curriculum")
-@Tag(name = "Curriculum Controller", description = "Gera PDFs de currículos a partir de dados do " +
-        "usuário")
 public class CurriculumController {
 
     @Autowired
     private CurriculumService curriculumService;
 
     @CrossOrigin(origins = {"http://localhost:5173", "https://curriculum-maker.vercel.app"})
-    @Operation(summary = "Gera um currículo minimalista em PDF", description = "Recebe dados do " +
-            "usuário e devolve um PDF formatado com o currículo", requestBody =
-    @RequestBody(description = "Dados de perfil do usuário", content = @Content(schema =
-    @Schema(implementation = UserProfile.class))), responses =
-            {@ApiResponse(responseCode = "200", description = "PDF gerado com sucesso!",
-                    content = @Content(mediaType = "application/pdf")),
-                    @ApiResponse(responseCode = "400", description = "Erro na entrada de dados")})
-
     @PostMapping("/generate")
     public ResponseEntity<byte[]> generateCurriculum(@RequestBody UserProfile userProfile) {
         byte[] pdfBytes = curriculumService.generatePdf(userProfile);
