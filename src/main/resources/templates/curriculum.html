@@ -137,5 +137,17 @@
         </div>
     </div>
 
+    <div th:if="${curriculum.additionalActivities != null and !#lists.isEmpty(curriculum.additionalActivities)}">
+        <div class="section-title">ATIVIDADES ADICIONAIS</div>
+        <div class="content">
+            <ul class="custom-list">
+                <li th:each="act : ${curriculum.additionalActivities}">
+                    <span th:text="${act.period}">Período</span><br />
+                    <p th:text="${act.description}">Descrição da atividade</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>
