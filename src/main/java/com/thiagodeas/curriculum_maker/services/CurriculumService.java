@@ -8,6 +8,7 @@ import org.thymeleaf.context.Context;
 
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import com.thiagodeas.curriculum_maker.dto.CurriculumRequestDto;
+import com.thiagodeas.curriculum_maker.exceptions.CurriculumPdfGenerationException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,7 +32,7 @@ public class CurriculumService {
             return outputStream.toByteArray();
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao gerar o PDF", e);
+            throw new CurriculumPdfGenerationException("Error when generating PDF", e);
         }
     }
 }
