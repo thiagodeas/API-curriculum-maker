@@ -18,7 +18,7 @@ public class CurriculumRequestDto {
     private String aboutMe;
 
     private List<Experience> experience;
-    private List<String> skills;
+    private List<SkillCategory> skillCategories;
     private List<Education> education;
     private List<Project> projects;
 
@@ -28,6 +28,12 @@ public class CurriculumRequestDto {
         private String company;
         private String period;
         private String description;
+    }
+
+    @Data
+    public static class SkillCategory {
+        private String categoryName;
+        private List<String> skills;
     }
 
     @Data
