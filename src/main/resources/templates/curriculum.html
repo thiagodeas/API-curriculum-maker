@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Currículo - [[${curriculum.fullname}]]</title>
     <style>
         body {
@@ -12,45 +12,51 @@
             margin-bottom: 5px;
         }
         h1 {
-            font-size: 24px;
+            font-size: 26px;
             text-align: center;
             font-weight: bold;
+            letter-spacing: 2px;
         }
         h2 {
             font-size: 16px;
             text-align: center;
+            letter-spacing: 1px;
+            font-weight: normal;
             margin-top: 0;
+            margin-bottom: 12px;
         }
         .section-title {
             font-weight: bold;
             margin-top: 30px;
             margin-bottom: 10px;
-            padding-left: 20px;
+            padding-left: 0px;
         }
         .content {
-            padding-left: 40px;
+            padding-left: 0px;
         }
         ul {
             list-style-type: disc;
-            padding-left: 40px;
+            padding-left: 30px;
         }
         .small-text {
             font-size: 12px;
             color: #555;
         }
-        .center-text {
+        .center-text p{
             text-align: center;
+            margin: 0 0 10px 0;
+            line-height: 1.5;
+        }
+        .custom-list li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
-    <!-- Nome completo -->
     <h1 th:text="${curriculum.fullname}">Nome Completo</h1>
 
-    <!-- Cargo -->
     <h2 th:text="${curriculum.jobTitle}">Cargo</h2>
 
-    <!-- Informações de contato centralizadas -->
     <div class="center-text">
         <p>
             <span th:text="${curriculum.city}">Cidade</span>,
@@ -58,70 +64,73 @@
             <span th:text="${curriculum.country}">País</span>
         </p>
 
-        <p th:text="${curriculum.phone}">Telefone</p>
-        <p th:text="${curriculum.email}">Email</p>
+        <p>
+            Celular/Whatsapp: <span th:text="${curriculum.phone}">Telefone</span>
+        </p>
         
         <p>
-            <a th:href="${curriculum.linkedin}" th:text="${curriculum.linkedin}">LinkedIn</a>
+            Email: <span th:text="${curriculum.email}">Email</span>
+        </p>
+        
+        <p>
+            LinkedIn: <a th:href="${curriculum.linkedin}" th:text="${curriculum.linkedin}">LinkedIn</a>
         </p>
 
         <p>
-            <a th:href="${curriculum.github}" th:text="${curriculum.github}">GitHub</a>
+            GitHub: <a th:href="${curriculum.github}" th:text="${curriculum.github}">GitHub</a>
         </p>
     </div>
 
-    <!-- Sobre mim -->
     <div>
         <div class="section-title">SOBRE MIM</div>
         <div class="content" th:text="${curriculum.aboutMe}">Descrição sobre mim...</div>
     </div>
 
-    <!-- Experiência Profissional (se houver) -->
     <div th:if="${curriculum.experience != null and #lists.size(curriculum.experience) > 0}">
         <div class="section-title">EXPERIÊNCIA PROFISSIONAL</div>
         <div class="content">
-            <ul>
-                <li th:each="exp : ${curriculum.experience}">
-                    <strong th:text="${exp.position}">Cargo</strong> - 
+            <div th:each="exp : ${curriculum.experience}">
+                    <span th:text="${exp.position}">Cargo</span> |
                     <span th:text="${exp.company}">Empresa</span> | 
                     <span th:text="${exp.period}">Período</span>
-                    <p th:text="${exp.description}">Descrição da experiência</p>
+                    <ul>
+                        <li th:text="${exp.description}">Descrição da experiência></li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <div th:if="${curriculum.skillCategories != null and !#lists.isEmpty(curriculum.skillCategories)}">
+        <div class="section-title">CONHECIMENTOS</div>
+        <div class="content">
+            <ul class="custom-list">
+                <li th:each="cat : ${curriculum.skillCategories}">
+                    <span th:text="${cat.categoryName}">Categoria</span>:
+                    <span th:text="${#strings.arrayJoin(cat.skills.toArray(), ', ')}">Lista de Skills</span>
                 </li>
             </ul>
         </div>
     </div>
 
-    <!-- Skills -->
-    <div th:if="${curriculum.skills != null and #lists.size(curriculum.skills) > 0}">
-        <div class="section-title">HABILIDADES</div>
-        <div class="content">
-            <ul>
-                <li th:each="skill : ${curriculum.skills}" th:text="${skill}">Skill</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Educação -->
     <div th:if="${curriculum.education != null and #lists.size(curriculum.education) > 0}">
         <div class="section-title">EDUCAÇÃO</div>
         <div class="content">
-            <ul>
+            <ul class="custom-list">
                 <li th:each="edu : ${curriculum.education}">
-                    <strong th:text="${edu.name}">Curso</strong> - 
-                    <span th:text="${edu.company}">Instituição</span> | 
+                    <span th:text="${edu.name}">Curso</span> | 
+                    <span th:text="${edu.institution}">Instituição</span> | 
                     <span th:text="${edu.year}">Ano</span>
                 </li>
             </ul>
         </div>
     </div>
 
-    <!-- Projetos -->
     <div th:if="${curriculum.projects != null and #lists.size(curriculum.projects) > 0}">
         <div class="section-title">PROJETOS</div>
         <div class="content">
-            <ul>
+            <ul class="custom-list">
                 <li th:each="proj : ${curriculum.projects}">
-                    <strong th:text="${proj.title}">Título do projeto</strong>
+                    <span th:text="${proj.title}">Título do projeto</span>
                     <p th:text="${proj.description}">Descrição do projeto</p>
                 </li>
             </ul>
