@@ -34,7 +34,7 @@ Use JSON data like the example below in the request body:
 
 ```json
 {
-  "fullname": "John Doe",
+  "fullName": "John Doe",
   "jobTitle": "Full Stack Developer",
   "city": "São Paulo",
   "state": "SP",
@@ -52,7 +52,7 @@ Use JSON data like the example below in the request body:
       "description": "Developed REST APIs with Java and Spring Boot..."
     }
   ],
-  "skillCategories": [
+  "knowledgeByCategory": [
     {
       "categoryName": "Languages",
       "skills": ["Java", "JavaScript", "Python"]

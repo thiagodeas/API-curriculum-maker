@@ -38,7 +38,7 @@ public class CurriculumServiceTest {
     void generatePdfReturnsByteArray() {
         CurriculumRequestDto dto = new CurriculumRequestDto();
 
-        dto.setFullname("Thiago Alves");
+        dto.setFullName("Thiago Alves");
         dto.setJobTitle("Backend Developer");
 
         when(templateEngine.process(eq("curriculum"), any(Context.class)))
@@ -56,7 +56,7 @@ public class CurriculumServiceTest {
     void generatePdfThrowsExceptionOnFailure() {
         CurriculumRequestDto dto = new CurriculumRequestDto();
 
-        dto.setFullname("Thiago Alves");
+        dto.setFullName("Thiago Alves");
 
         when(templateEngine.process(anyString(), any(Context.class)))
         .thenThrow(new CurriculumPdfGenerationException("Error when generating PDF"));
