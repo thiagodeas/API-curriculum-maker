@@ -12,7 +12,8 @@
 	<artifactId>curriculum-maker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>curriculum-maker</name>
-	<description>Demo project for Spring Boot</description>
+	<description>A backend application built with Java and Spring Boot that receives user data and generates a customized resume in PDF format.
+	</description>
 	<url/>
 	<licenses>
 		<license/>
