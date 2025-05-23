@@ -1,6 +1,6 @@
 # Curriculum Maker API
 
-A backend service for generating minimalist developer CVs in PDF format, powered by Spring Boot, Thymeleaf, and OpenHTMLtoPDF.
+A backend service for generating minimalist developer CVs in PDF format, powered by Spring Boot, Docker, Thymeleaf, and OpenHTMLtoPDF.
 
 ---
 
@@ -9,6 +9,8 @@ A backend service for generating minimalist developer CVs in PDF format, powered
 - 🧾 Generates professional-looking PDF resumes
 - 🖋️ Template rendered using Thymeleaf
 - 📄 PDF generation powered by OpenHTMLtoPDF (using PDFBox)
+- 🐳 Easily containerized and deployable with Docker
+
 
 ---
 
@@ -19,6 +21,7 @@ A backend service for generating minimalist developer CVs in PDF format, powered
 - Thymeleaf
 - OpenHTMLtoPDF (with PDFBox)
 - Lombok
+- Docker
 
 ---
 
