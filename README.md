@@ -11,7 +11,6 @@ A backend service for generating minimalist developer CVs in PDF format, powered
 - 📄 PDF generation powered by OpenHTMLtoPDF (using PDFBox)
 - 🐳 Easily containerized and deployable with Docker
 
-
 ---
 
 ## 🛠️ Tech Stack
@@ -22,6 +21,7 @@ A backend service for generating minimalist developer CVs in PDF format, powered
 - OpenHTMLtoPDF (with PDFBox)
 - Lombok
 - Docker
+- JUnit
 
 ---
 
