@@ -95,6 +95,26 @@ Use JSON data like the example below in the request body:
 
 ---
 
+## 🐳 How to Run with Docker
+
+You can build and run the application easily using Docker — no need to install Maven or Java locally.
+
+### 🧱 Build the Docker image
+
+```bash
+docker build -t curriculum-maker .
+```
+
+### Run the container
+
+```bash
+docker run -p 8080:8080 curriculum-maker
+```
+
+Your API will be available at: http://localhost:8080
+
+---
+
 ## 🚀 How to Run Locally
 
 1. Clone the repository:
