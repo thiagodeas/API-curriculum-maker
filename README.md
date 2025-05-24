@@ -80,7 +80,6 @@ Use JSON data like the example below in the request body:
   ],
   "additionalActivities": [
     {
-      "period": "2023",
       "description": "Volunteered in a community tech bootcamp."
     }
   ]
